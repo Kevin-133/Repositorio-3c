@@ -1,24 +1,23 @@
+import Model.Equilateral;
+import Model.FigureAbs;
+import Model.Rectangle;
+
+
 public class Main {
-    public static void main(String[] args) {
-
-        CuentaBancaria miCuenta = new CuentaBancaria("Kevin");
+    public static void main(String[] args) throws Exception {
 
 
-        System.out.println("Titular: " + miCuenta.getTitular());
+        FigureAbs equilateral = new Equilateral(20, 10, 10);
+        FigureAbs rectangle = new Rectangle(10, 10, 10, 10, 10);
 
+        FigureAbs[] figures = {equilateral, rectangle};
 
-        miCuenta.depositar(1000);
-        System.out.println("Deposito principal 1000");
-        System.out.println("Saldo actual: " + miCuenta.getSaldo());
+        for (FigureAbs figureAbs : figures) {
+            System.out.println("La clase es: " + figureAbs.getClass().getSimpleName());
+            System.out.println("El area es: " + figureAbs.getArea());
+            System.out.println("El perimetro es: " + figureAbs.getPerimeter());
+            System.out.println("----------------------------------------------------");
+        }
 
-
-        boolean exito1 = miCuenta.retirar(200);
-        System.out.println("Intento retirar 200: " + exito1);
-        System.out.println("Saldo actual: " + miCuenta.getSaldo());
-
-
-        boolean exito2 = miCuenta.retirar(10000);
-        System.out.println("Intento retirar 10000: " + exito2);
-        System.out.println("Saldo final: " + miCuenta.getSaldo());
     }
 }
