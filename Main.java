@@ -1,23 +1,12 @@
-import Model.Equilateral;
-import Model.FigureAbs;
-import Model.Rectangle;
-
-
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+        Empleado empTiempoCompleto = new EmpleadoTiempoCompleto("1", "Hannah", 2000.0, "Seguro médico");
+        empTiempoCompleto.calcularSalario();
 
+        Empleado empPorHoras = new EmpleadoPorHoras("2", "Kevin", 15.0, 120);
+        empPorHoras.calcularSalario();
 
-        FigureAbs equilateral = new Equilateral(20, 10, 10);
-        FigureAbs rectangle = new Rectangle(10, 10, 10, 10, 10);
-
-        FigureAbs[] figures = {equilateral, rectangle};
-
-        for (FigureAbs figureAbs : figures) {
-            System.out.println("La clase es: " + figureAbs.getClass().getSimpleName());
-            System.out.println("El area es: " + figureAbs.getArea());
-            System.out.println("El perimetro es: " + figureAbs.getPerimeter());
-            System.out.println("----------------------------------------------------");
-        }
-
+        System.out.println("Salario de tiempo completo: " + empTiempoCompleto.calcularSalario());
+        System.out.println("Salario por horas: " + empPorHoras.calcularSalario());
     }
 }
